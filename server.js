@@ -1,9 +1,13 @@
 const express = require('express');
 const routes = require('./routes');
-// import sequelize connection
 const sequelize = require('./config/connection');
 const coinGeckoAPI = require('coingecko-api');
 const handleBars = require('handlebars')
+const exphbs = require('express-handlebars');
+const helpers = require('./utils/helpers');
+const routes = require('./controllers');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
