@@ -1,8 +1,8 @@
 const express = require('express');
-const routes = require('./routes');
+
 // import sequelize connection
 const sequelize = require('./config/connection');
-const coinGeckoAPI = require('coingeck-api');
+const coinGeckoAPI = require('coingecko-api');
 const handleBars = require('handlebars')
 const app = express();
 const PORT = process.env.PORT || 3001;
