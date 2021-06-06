@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Nich",
+        "email": "nparson@gmail.com",
+        "password": "Password12345",
+        "user_id": "1"
+        
+    },
+    {
+        "name": "Troy",
+        "email": "tfreed@yahoo.com",
+        "password": "Password12345",
+        "user_id": "2"
+    },
+    {
+        "name": "Megan",
+        "email": "mknauss@gmail.com",
+        "password": "Password12345",
+        "user_id": "3"
+    },
+    {
+        "name": "Mary",
+        "email": "m_morvin@yahoo.com",
+        "password": "Password12345",
+        "user_id": "4"
+        
+    }
+]

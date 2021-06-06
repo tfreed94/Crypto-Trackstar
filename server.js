@@ -10,14 +10,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 const sess = {
-    secret: process.env.secret,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  secret: process.env.secret,
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
+
+app.get('/', (req,res) => {
+  res.send('Crypto Trackstar');
+});
 
 app.use(session(sess));
 app.engine('handlebars', hbs.engine);
@@ -29,5 +33,5 @@ app.use(express.static('assets'));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening to port ' + PORT));
+  app.listen(PORT, () => console.log('Now listening to port ' + PORT));
 });

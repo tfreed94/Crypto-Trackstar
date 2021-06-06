@@ -1,13 +1,29 @@
-const User = require('./User');
-const Coins = require('./Coins');
-const Watchlist = require('./Watchlist');
-
-Watchlist.hasMany(Coins, {
-  foreignKey: 'Coins_id',
-});
-
-Watchlist.belongsTo(User, {
-  foreignKey: 'User_id',
-});
-
-module.exports = { User, Coins, Watchlist };
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+class Coins extends Model {}
+Coins.init(
+    {
+        id:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        price: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    },
+{
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'coins',
+}
+)
+module.exports= Coins

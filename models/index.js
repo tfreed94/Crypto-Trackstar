@@ -1,13 +1,9 @@
-const User = require('./User');
-const Coins = require('./Coins');
-const Watchlist = require('./Watchlist');
-
-Watchlist.hasMany(Coins, {
-  foreignKey: 'Coins_id',
+const User = require('./user');
+const Coins = require('./coins');
+User.hasMany(Coins, {
+  foreignKey: 'coins_id',
 });
-
-Watchlist.belongsTo(User, {
-  foreignKey: 'User_id',
+Coins.belongsTo(User, {
+  foreignKey: 'user_id',
 });
-
-module.exports = { User, Coins, Watchlist };
+module.exports = { User, Coins, };

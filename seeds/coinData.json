@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "bitcoin",
+        "price": 37000
+    },
+    {
+        "id": 2,
+        "name": "ethereum",
+        "price": 2800
+    },
+    {
+        "id": 3,
+        "name": "chainlink",
+        "price": 27.50
+    },
+    {
+        "id": 4,
+        "name": "dogecoin",
+        "price": 0.38
+    },
+    {
+        "id": 5,
+        "name": "tether",
+        "price": 1
+    },
+    {
+        "id": 6,
+        "name": "ripple",
+        "price": 0.90
+    },
+    {
+        "id": 7,
+        "name": "cardano",
+        "price": 1.67
+    },
+    {
+        "id": 8,
+        "name": "polkadot",
+        "price": 24.05
+    },
+    {
+        "id": 9,
+        "name": "uniswap",
+        "price": 25
+    },
+    {
+        "id": 10,
+        "name": "litecoin",
+        "price": 174.05
+    }
+]
