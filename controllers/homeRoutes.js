@@ -1,10 +1,9 @@
 const router = require("express").Router();
 const { User, Coins } = require('../models')
-
-router.get('/', async (req, res) => {
-    res.render('home')
+router.get('/login', (req, res) => {
+    res.render('login')
 })
-router.get('/dashboard', async (res, req) => {
+router.get('/home', async (res, req) => {
     try {
         const coinData = await Coins.findAll({
             include: [
@@ -15,7 +14,7 @@ router.get('/dashboard', async (res, req) => {
             ]
         })
         const allCoins = coinData.map((coins) => coins.get({ plain: true }))
-        res.render('dashboard', {
+        res.render('home', {
             allCoins,
             logged_in: req.session.logged_in
         });

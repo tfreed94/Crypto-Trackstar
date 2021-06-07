@@ -18,20 +18,18 @@ const sess = {
     db: sequelize
   })
 };
-
-app.get('/', (req,res) => {
-  res.send('Crypto Trackstar');
+app.get('/', (req, res) => {
+  res.render('home');
 });
-
 app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(express.static('assets'));
+app.use(express.static('layouts'));
+app.use(express.static('views'));
 app.use(routes);
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening to port ' + PORT));
 });

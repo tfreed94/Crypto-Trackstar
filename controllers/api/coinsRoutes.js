@@ -1,5 +1,35 @@
 const router = require('express').Router();
 const { Coins } = require('../../models');
+const CoinGecko = require('coingecko-api');
+const CoinGeckoClient = new CoinGecko
+let nowDate = new Date();
+let date_today = nowDate.getDate() + '-' + (nowDate.getMonth() + 1) + '-' + nowDate.getFullYear();
+router.get("/allcoins", async (req, res) => {
+    let datas = await CoinGeckoClient.coins.all();
+    res.json(datas)
+})
+
+router.get("/allcoins/bitcoin", async (req, res) => {
+    let datas = await CoinGeckoClient.coins.fetch('bitcoin', {
+    })
+    res.json(datas)
+})
+router.get("/allcoins/:name", async (req, res) => {
+    if (req.session.isLoggedIn) {
+        const data = await Coins.findByPk({
+            where: {
+                name: req.session.name
+            }
+        });
+        console.log(data)
+        let datas = await CoinGeckoClient.simple.price({
+            name: data.name,
+            vs_currencies: 'usd'
+        })
+        res.json(datas)
+    }
+})
+
 
 
 router.post('/', async (req, res) => {
