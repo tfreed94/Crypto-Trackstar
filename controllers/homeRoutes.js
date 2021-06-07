@@ -3,7 +3,7 @@ const { User, Coins } = require('../models')
 router.get('/login', (req, res) => {
     res.render('login')
 })
-router.get('/home', async (res, req) => {
+router.get('/home', async (req, res) => {
     try {
         const coinData = await Coins.findAll({
             include: [
