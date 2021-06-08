@@ -3,92 +3,99 @@
         <tr>
             <th class="table-dark" scope="col">#</th>
             <th class="table-dark" scope="col">Name</th>
-            <th class="table-dark" scope="col">Price</th>
-            <th class="table-dark" scope="col">24h%</th>
-            <th class="table-dark" scope="col">7d% </th>
-            <th class="table-dark" scope="col">Market Cap</th>
+            <th class="table-dark" scope="col">Current price (usd)</th>
+            <th class="table-dark" scope="col">24-hour change (usd)</th>
+            <th class="table-dark" scope="col">7-day % change </th>
+            <th class="table-dark" scope="col">14-day % change</th>
         </tr>
     </thead>
     <tbody>
+        {{!-- {{#each coins}}
+        <tr>
+            <th class="table-dark" scope="row">{{this.id}}</th>
+            <td class="table-dark">{{this.name}}</td>
+            <td class="table-dark" id="bitprice">{{this.price}}</td>
+        </tr>
+        {{/each}} --}}
         <tr>
             <th class="table-dark" scope="row">1</th>
             <td class="table-dark">Bitcoin</td>
-            <td class="table-dark" id="bitprice"></td>
-            <td class="table-dark" id="bit24hr"></td>
-            <td class="table-dark" id="bit7d"></td>
-            <td class="table-dark" id="bitmarketcap"></td>
+            <td class="table-dark" id="bitprice">{{price.data.bitcoin.usd}}</td>
+            <td class="table-dark" id="bit24hr">{{bit.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="bit7d">{{bit.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="bit14d">{{bit.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">2</th>
             <td class="table-dark">Ethereum</td>
-            <td class="table-dark" id="etprice"></td>
-            <td class="table-dark" id="et24hr"></td>
-            <td class="table-dark" id="et7d"></td>
-            <td class="table-dark" id="etmarketcap"></td>
+            <td class="table-dark" id="etprice">{{price.data.ethereum.usd}}</td>
+            <td class="table-dark" id="et24hr">{{eth.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="et7d">{{eth.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="et14d">{{eth.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">3</th>
             <td class="table-dark">Chainlink</td>
-            <td class="table-dark" id="chainprice"></td>
-            <td class="table-dark" id="chain24hr"></td>
-            <td class="table-dark" id="chain7d"></td>
-            <td class="table-dark" id="chainmarketcap"></td>
+            <td class="table-dark" id="chainprice">{{price.data.chainlink.usd}}</td>
+            <td class="table-dark" id="chain24hr">{{chain.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="chain7d">{{chain.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="chain14d">{{chain.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">4</th>
             <td class="table-dark">Dogecoin</td>
-            <td class="table-dark" id="dogeprice"></td>
-            <td class="table-dark" id="doge24hr"></td>
-            <td class="table-dark" id="doge7d"></td>
-            <td class="table-dark" id="dogemarketcap"></td>
+            <td class="table-dark" id="dogeprice">{{price.data.dogecoin.usd}}</td>
+            <td class="table-dark" id="doge24hr">{{doge.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="doge7d">{{doge.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="doge14d">{{doge.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">5</th>
             <td class="table-dark">Tether</td>
-            <td class="table-dark" id="tetprice"></td>
-            <td class="table-dark" id="tet24hr"></td>
-            <td class="table-dark" id="tet7d"></td>
-            <td class="table-dark" id="tetmarketcap"></td>
+            <td class="table-dark" id="tetprice">{{price.data.tether.usd}}</td>
+            <td class="table-dark" id="tet24hr">{{tet.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="tet7d">{{tet.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="tet14d">{{tet.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">6</th>
             <td class="table-dark">Ripple</td>
-            <td class="table-dark" id="ripprice"></td>
-            <td class="table-dark" id="rip24hr"></td>
-            <td class="table-dark" id="rip7d"></td>
-            <td class="table-dark" id="ripmarketcap"></td>
+            <td class="table-dark" id="ripprice">{{price.data.ripple.usd}}</td>
+            <td class="table-dark" id="rip24hr">{{rip.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="rip7d">{{rip.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="rip14d">{{rip.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">7</th>
             <td class="table-dark">Cardano</td>
-            <td class="table-dark" id="carprice"></td>
-            <td class="table-dark" id="car24hr"></td>
-            <td class="table-dark" id="car7d"></td>
-            <td class="table-dark" id="carmarketcap"></td>
+            <td class="table-dark" id="carprice">{{price.data.cardano.usd}}</td>
+            <td class="table-dark" id="car24hr">{{car.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="car7d">{{car.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="car14d">{{car.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">8</th>
             <td class="table-dark">Polkadot</td>
-            <td class="table-dark" id="polkprice"></td>
-            <td class="table-dark" id="polk24hr"></td>
-            <td class="table-dark" id="polk7d"></td>
-            <td class="table-dark" id="polkmarketprice"></td>
+            <td class="table-dark" id="polkprice">{{price.data.polkadot.usd}}</td>
+            <td class="table-dark" id="polk24hr">{{polk.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="polk7d">{{polk.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="polk14d">{{polk.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">9</th>
             <td class="table-dark">Uniswap</td>
-            <td class="table-dark" id="uniprice"></td>
-            <td class="table-dark" id="uni24hr"></td>
-            <td class="table-dark" id="uni7d"></td>
-            <td class="table-dark" id="unimarketprice"></td>
+            <td class="table-dark" id="uniprice">{{price.data.uniswap.usd}}</td>
+            <td class="table-dark" id="uni24hr">{{uni.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="uni7d">{{uni.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="uni14d">{{uni.data.market_data.price_change_percentage_14d}}</td>
         </tr>
         <tr>
             <th class="table-dark" scope="row">10</th>
             <td class="table-dark">Litecoin</td>
-            <td class="table-dark" id="litprice"></td>
-            <td class="table-dark" id="lit24hr"></td>
-            <td class="table-dark" id="lit7d"></td>
-            <td class="table-dark" id="litmarketprice"></td>
+            <td class="table-dark" id="litprice">{{price.data.litecoin.usd}}</td>
+            <td class="table-dark" id="lit24hr">{{lite.data.market_data.price_change_24h}}</td>
+            <td class="table-dark" id="lit7d">{{lite.data.market_data.price_change_percentage_7d}}</td>
+            <td class="table-dark" id="lit14d">{{lite.data.market_data.price_change_percentage_14d}}</td>
         </tr>
     </tbody>
 </table>
